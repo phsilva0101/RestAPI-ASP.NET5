@@ -1,6 +1,6 @@
 using System;
 
-namespace RESTAPI_ASPNET5
+namespace Util
 {
     public class WeatherForecast
     {
