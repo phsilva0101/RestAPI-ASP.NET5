@@ -86,8 +86,8 @@ namespace RESTAPI_ASPNET5.Controllers
             return BadRequest("Invalid Input");
         }
 
-        [HttpGet("media/{firstnumber}/{secondnumber}")]
-        public IActionResult GetMedia(string firstNumber, string secondNumber)
+        [HttpGet("mean/{firstnumber}/{secondnumber}")]
+        public IActionResult GetMean(string firstNumber, string secondNumber)
         {
             if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
             {
