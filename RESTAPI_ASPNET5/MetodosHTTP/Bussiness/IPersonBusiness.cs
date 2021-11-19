@@ -1,9 +1,9 @@
 ﻿using MetodosHTTP.Model;
 using System.Collections.Generic;
 
-namespace MetodosHTTP.Services
+namespace MetodosHTTP.Business
 {
-    public interface IPersonService
+    public interface IPersonBusiness
     {
         Person Create(Person person);
         Person FindById(long id);

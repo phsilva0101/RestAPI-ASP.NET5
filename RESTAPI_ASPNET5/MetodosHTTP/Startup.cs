@@ -1,6 +1,6 @@
 using MetodosHTTP.Model.Context;
-using MetodosHTTP.Services;
-using MetodosHTTP.Services.Implementations;
+using MetodosHTTP.Business;
+using MetodosHTTP.Business.Implementations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -14,6 +14,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MetodosHTTP.Repository;
+using MetodosHTTP.Repository.Implementations;
 
 namespace MetodosHTTP
 {
@@ -35,8 +37,13 @@ namespace MetodosHTTP
             var connection = Configuration["MySQLConnection:MySQLConnectionString"];
             services.AddDbContext<Context>(options => options.UseMySql(connection));
 
+            //Versioning API
+            services.AddApiVersioning();
+
             //Dependency Injection
-            services.AddScoped<IPersonService, PersonServiceImplementation>();
+            services.AddScoped<IPersonBusiness, PersonBussinessImplementation>();
+            services.AddScoped<IPersonRepository, PersonRepositoyImplementation>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

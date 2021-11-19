@@ -5,12 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
-namespace MetodosHTTP.Services.Implementations
+namespace MetodosHTTP.Repository.Implementations
 {
-    public class PersonServiceImplementation : IPersonService
+    public class PersonRepositoyImplementation : IPersonRepository
     {
         private Context _context;
-        public PersonServiceImplementation(Context context)
+        public PersonRepositoyImplementation(Context context)
         {
             _context = context;
         }
@@ -80,7 +80,7 @@ namespace MetodosHTTP.Services.Implementations
             }
         }
 
-        private bool Exists(long id)
+        public bool Exists(long id)
         {
             return _context.Persons.Any(p => p.Id.Equals(id));
         }
